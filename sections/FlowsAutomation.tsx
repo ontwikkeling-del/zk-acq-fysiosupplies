@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Zap, Ticket, GitBranch, UserCheck, Brain, QrCode, Globe, Mic, FileText, Layers, Wrench, ArrowRight, X } from 'lucide-react';
+import { Zap, Ticket, GitBranch, UserCheck, Brain, QrCode, Globe, Mic, FileText, Wrench, ArrowRight, X, UserPlus, Headphones } from 'lucide-react';
 import { TradeShows } from './TradeShows';
 import { LeadPipeline } from './LeadPipeline';
 import { ContactEnricher } from './ContactEnricher';
@@ -9,7 +9,6 @@ import { QRSample } from './QRSample';
 import { WebsiteTracker } from './WebsiteTracker';
 import { AIAnalysis } from './AIAnalysis';
 import { QuoteAutomation } from './QuoteAutomation';
-import { SegmentStrategy } from './SegmentStrategy';
 
 const tools = [
   { icon: Ticket, title: 'Beurzen & Events', benefit: 'Lead direct in CRM na scan', color: 'brand-green', slideKey: 'TradeShows' },
@@ -20,12 +19,13 @@ const tools = [
   { icon: Globe, title: 'Website Lead Tracker', benefit: 'Anonieme bezoekers → bedrijfsnaam', color: 'brand-pink', slideKey: 'WebsiteTracker' },
   { icon: Mic, title: 'AI Gespreksanalyse', benefit: 'Auto-samenvatting & coaching tips', color: 'brand-green', slideKey: 'AIAnalysis' },
   { icon: FileText, title: 'Offerte Automatisering', benefit: 'Snellere opvolging, hogere conversie', color: 'brand-accent', slideKey: 'QuoteAutomation' },
-  { icon: Layers, title: 'Segmentatie & Signalen', benefit: 'Elke klant de juiste aanpak', color: 'brand-purple', slideKey: 'SegmentStrategy' },
+  { icon: UserPlus, title: 'Lead Generatie', benefit: 'Automatisch leads op aanvraag', color: 'brand-pink', slideKey: null },
+  { icon: Headphones, title: 'Audio Buitendienst', benefit: 'Spraaknotities direct op klantkaart', color: 'brand-green', slideKey: null },
 ];
 
 const slideComponentMap: Record<string, React.FC> = {
   TradeShows, LeadPipeline, ContactEnricher, AIEnrichment,
-  QRSample, WebsiteTracker, AIAnalysis, QuoteAutomation, SegmentStrategy,
+  QRSample, WebsiteTracker, AIAnalysis, QuoteAutomation,
 };
 
 export const FlowsAutomation: React.FC = () => {
@@ -69,7 +69,7 @@ export const FlowsAutomation: React.FC = () => {
           </div>
 
           {/* Tools grid */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
             {tools.map((tool, index) => {
               const Icon = tool.icon;
               return (
@@ -78,15 +78,17 @@ export const FlowsAutomation: React.FC = () => {
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.2 + index * 0.05 }}
-                  onClick={() => setActiveSlide(tool.slideKey)}
-                  className={`bg-white border border-gray-100 rounded-xl p-4 cursor-pointer transition-all group hover:border-${tool.color}/30 hover:shadow-md`}
+                  onClick={() => tool.slideKey && setActiveSlide(tool.slideKey)}
+                  className={`bg-white border border-gray-100 rounded-xl p-4 transition-all group hover:shadow-md ${
+                    tool.slideKey ? 'cursor-pointer hover:border-' + tool.color + '/30' : ''
+                  }`}
                 >
                   <div className={`w-10 h-10 bg-${tool.color}/10 rounded-full flex items-center justify-center mb-3 group-hover:scale-110 transition-transform`}>
                     <Icon className={`w-5 h-5 text-${tool.color}`} />
                   </div>
                   <p className="text-brand-purple font-bold text-xs mb-1">{tool.title}</p>
                   <p className={`text-${tool.color} font-bold text-[10px] flex items-center gap-1`}>
-                    <ArrowRight className="w-3 h-3" /> {tool.benefit}
+                    {tool.slideKey && <ArrowRight className="w-3 h-3" />} {tool.benefit}
                   </p>
                 </motion.div>
               );

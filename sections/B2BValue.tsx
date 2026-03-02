@@ -24,7 +24,7 @@ const speerpunten = [
   {
     icon: TrendingUp,
     title: 'Klanten voller maken',
-    description: 'Cross-sell kansen identificeren, herhalingsflows, LTV verhogen per klantsegment',
+    description: 'Cross-sell kansen identificeren, herhalingsflows, klantwaarde verhogen per segment',
     color: 'brand-pink',
     slideKey: 'MaxClientValue',
   },

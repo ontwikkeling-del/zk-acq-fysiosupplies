@@ -32,7 +32,7 @@ export const ClientBusinessCase: React.FC = () => {
             <div className="w-14 h-14 bg-brand-green/20 rounded-full flex items-center justify-center mx-auto mb-5">
               <TrendingUp className="w-7 h-7 text-brand-green" />
             </div>
-            <h3 className="text-brand-green font-black text-xl uppercase mb-3">Maximize lifetime value</h3>
+            <h3 className="text-brand-green font-black text-xl uppercase mb-3">Maximaliseer klantwaarde</h3>
             <p className="text-white/60 text-sm leading-relaxed">
               Haal meer uit bestaande klanten door cross-sell, herhalingsaankopen en proactief klantbehoud
             </p>

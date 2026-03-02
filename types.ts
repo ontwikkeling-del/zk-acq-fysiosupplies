@@ -255,8 +255,7 @@ export const ALL_SLIDE_KEYS = [
   'SleepingClients',
   'MaxClientValue',
   'NewClients',
-  // Tools & data
-  'Dashboarding',
+  // Tools
   'FlowsAutomation',
   // Individuele tools (beschikbaar via FlowsAutomation/B2BValue klik)
   'TradeShows',
@@ -267,11 +266,9 @@ export const ALL_SLIDE_KEYS = [
   'WebsiteTracker',
   'AIAnalysis',
   'QuoteAutomation',
-  'SegmentStrategy',
   // Team
   'TeamExpertise',
   // Aanpak & investering
-  'SetupSuccess',
   'Packages',
   'BusinessCase',
   'Pricing',
@@ -285,7 +282,6 @@ export const ALL_SLIDE_KEYS = [
 export const TOOL_SLIDES: SlideKey[] = [
   'TradeShows', 'LeadPipeline', 'ContactEnricher', 'AIEnrichment',
   'QRSample', 'WebsiteTracker', 'AIAnalysis', 'QuoteAutomation',
-  'SegmentStrategy',
   'ActivePipeline', 'SleepingClients', 'MaxClientValue', 'NewClients',
 ];
 
@@ -301,7 +297,6 @@ export const SLIDE_LABELS: Record<SlideKey, string> = {
   ClientBusinessCase: 'Verhoog de waarde',
   ThreePillars: 'Drie Pijlers',
   CRMPillar: 'CRM — Signalen & Structuur',
-  SegmentStrategy: 'Segmentatie & Signalen',
   AIAutomationPillar: 'AI & Automatisering',
   TrainingPillar: 'Training — Adoptie & Conversie',
   B2BValue: '4 Speerpunten',
@@ -309,7 +304,6 @@ export const SLIDE_LABELS: Record<SlideKey, string> = {
   SleepingClients: 'Speerpunt 2 — Slapende Klanten',
   MaxClientValue: 'Speerpunt 3 — Klanten Voller Maken',
   NewClients: 'Speerpunt 4 — Nieuwe Klanten',
-  Dashboarding: 'Data Driven Organisatie',
   FlowsAutomation: 'Onze Tools',
   TradeShows: 'Beurzen & Events',
   LeadPipeline: 'Lead Pipeline',
@@ -320,7 +314,6 @@ export const SLIDE_LABELS: Record<SlideKey, string> = {
   AIAnalysis: 'AI Gespreksanalyse',
   QuoteAutomation: 'Offerte Automatisering',
   TeamExpertise: 'Specialistische Kennis',
-  SetupSuccess: 'Opzet voor Succes',
   Packages: '12-Maanden Plan',
   BusinessCase: 'Business Case — Calculator',
   Pricing: 'Jouw Investering',
@@ -354,7 +347,7 @@ export const SLIDE_CATEGORIES: SlideCategory[] = [
   },
   {
     label: 'Tools & Data',
-    slides: ['Dashboarding', 'FlowsAutomation', 'TradeShows', 'LeadPipeline', 'ContactEnricher', 'AIEnrichment', 'QRSample', 'WebsiteTracker', 'AIAnalysis', 'QuoteAutomation', 'SegmentStrategy'],
+    slides: ['FlowsAutomation', 'TradeShows', 'LeadPipeline', 'ContactEnricher', 'AIEnrichment', 'QRSample', 'WebsiteTracker', 'AIAnalysis', 'QuoteAutomation'],
   },
   {
     label: 'Team',
@@ -362,7 +355,7 @@ export const SLIDE_CATEGORIES: SlideCategory[] = [
   },
   {
     label: 'Aanpak & Investering',
-    slides: ['SetupSuccess', 'Packages', 'BusinessCase', 'Pricing'],
+    slides: ['Packages', 'BusinessCase', 'Pricing'],
   },
   {
     label: 'Afsluiting',

@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Check, Zap, BarChart3, Users, TrendingUp } from 'lucide-react';
+import { Check, BarChart3, Users, TrendingUp } from 'lucide-react';
 import { config } from '../clientConfig';
 import { calculatePrice } from '../types';
 import { useBusinessCase } from '../BusinessCaseContext';
@@ -35,16 +35,21 @@ const marketRates = [
 ];
 
 const tiers = [
-  { range: '1-3', label: '1-3 medewerkers', price: '€3.495', highlight: true },
-  { range: '4-5', label: '4-5 medewerkers', price: '€4.495', highlight: false },
-  { range: '6-7', label: '6-7 medewerkers', price: '€5.495', highlight: false },
-  { range: '7+', label: '7+ medewerkers', price: 'Op maat', highlight: false },
+  { range: '1-3', salesCount: 3, label: '1-3 medewerkers', price: '€3.495' },
+  { range: '4-5', salesCount: 5, label: '4-5 medewerkers', price: '€4.495' },
+  { range: '6-7', salesCount: 7, label: '6-7 medewerkers', price: '€5.495' },
+  { range: '7+', salesCount: 8, label: '7+ medewerkers', price: 'Op maat' },
 ];
 
 export const Pricing: React.FC = () => {
   const pkg = config.package || 'full';
-  const salesCount = config.salesCount || 3;
-  const price = calculatePrice(pkg, salesCount);
+  const [selectedTier, setSelectedTier] = useState(
+    tiers.findIndex(t => t.salesCount >= (config.salesCount || 3)) >= 0
+      ? tiers.findIndex(t => t.salesCount >= (config.salesCount || 3))
+      : 0
+  );
+  const activeTier = tiers[selectedTier];
+  const price = calculatePrice(pkg, activeTier.salesCount);
   const features = pkg === 'full' ? fullFeatures : liteFeatures;
   const { totals } = useBusinessCase();
   const yearlyInvestment = price * 12;
@@ -88,79 +93,69 @@ export const Pricing: React.FC = () => {
               </div>
 
               <div className="mb-2">
-                <span className="text-white font-black text-5xl">
+                <motion.span
+                  key={price}
+                  initial={{ scale: 0.95 }}
+                  animate={{ scale: 1 }}
+                  className="text-white font-black text-5xl"
+                >
                   {new Intl.NumberFormat('nl-NL', { style: 'currency', currency: 'EUR', minimumFractionDigits: 0 }).format(price)}
-                </span>
+                </motion.span>
                 <span className="text-white/50 text-lg"> /mnd</span>
               </div>
 
-              {pkg === 'full' && salesCount > 5 && (
-                <p className="text-white/40 text-xs mb-3">
-                  Berekend voor {salesCount} sales medewerkers
-                </p>
-              )}
+              <p className="text-white/40 text-xs mb-3">
+                Berekend voor {activeTier.label}
+              </p>
 
-              {pkg === 'lite' && (
-                <p className="text-white/40 text-xs mb-3">
-                  Beschikbaar voor teams tot 2 sales medewerkers
-                </p>
-              )}
-
-              {/* Employee tiers */}
+              {/* Employee tiers - clickable */}
               {pkg === 'full' && (
                 <div className="bg-white/5 border border-white/10 rounded-xl p-3 mb-3">
                   <div className="flex items-center gap-2 mb-2">
                     <Users className="w-3.5 h-3.5 text-white/60" />
-                    <p className="text-white/60 text-xs font-bold uppercase">Staffel per teamgrootte</p>
+                    <p className="text-white/60 text-xs font-bold uppercase">Kies teamgrootte</p>
                   </div>
                   <div className="grid grid-cols-4 gap-1.5">
-                    {tiers.map((tier) => (
-                      <div
+                    {tiers.map((tier, index) => (
+                      <button
                         key={tier.range}
-                        className={`rounded-lg px-2 py-2 text-center ${
-                          tier.highlight
-                            ? 'bg-brand-green/20 border border-brand-green/30'
-                            : 'bg-white/5 border border-white/5'
+                        onClick={() => setSelectedTier(index)}
+                        className={`rounded-lg px-2 py-2 text-center transition-all cursor-pointer ${
+                          index === selectedTier
+                            ? 'bg-brand-green/20 border border-brand-green/30 scale-105'
+                            : 'bg-white/5 border border-white/5 hover:bg-white/10'
                         }`}
                       >
-                        <p className={`text-[10px] font-medium ${tier.highlight ? 'text-brand-green' : 'text-white/40'}`}>
+                        <p className={`text-[10px] font-medium ${index === selectedTier ? 'text-brand-green' : 'text-white/40'}`}>
                           {tier.label}
                         </p>
-                        <p className={`text-sm font-black ${tier.highlight ? 'text-brand-green' : 'text-white/70'}`}>
+                        <p className={`text-sm font-black ${index === selectedTier ? 'text-brand-green' : 'text-white/70'}`}>
                           {tier.price}
                         </p>
-                      </div>
+                      </button>
                     ))}
                   </div>
                 </div>
               )}
             </div>
 
-            <div className="space-y-3">
-              {/* Market comparison */}
-              <div className="bg-white/5 border border-white/10 rounded-xl p-3">
-                <div className="flex items-center gap-2 mb-2">
-                  <BarChart3 className="w-3.5 h-3.5 text-white/60" />
-                  <p className="text-white/60 text-xs font-bold uppercase">Marktprijzen vergelijking</p>
-                </div>
-                <div className="space-y-1.5">
-                  {marketRates.map((rate) => (
-                    <div key={rate.service} className="flex items-center justify-between">
-                      <p className="text-white/50 text-[10px]">{rate.service}</p>
-                      <p className="text-white/70 text-[10px] font-bold">{rate.market}</p>
-                    </div>
-                  ))}
-                </div>
-                <p className="text-white/30 text-[9px] mt-2 italic">
-                  Bronnen: Kenneth Smit, HubSpot Partner Directory, Consultancy.nl
-                </p>
+            {/* Market comparison */}
+            <div className="bg-white/5 border border-white/10 rounded-xl p-3">
+              <div className="flex items-center gap-2 mb-2">
+                <BarChart3 className="w-3.5 h-3.5 text-white/60" />
+                <p className="text-white/60 text-xs font-bold uppercase">Marktprijzen vergelijking</p>
               </div>
-
-              <div className="bg-brand-green/20 border-2 border-brand-green/40 rounded-2xl p-6 text-center">
-                <Zap className="w-10 h-10 text-brand-green mx-auto mb-3" />
-                <p className="text-brand-green font-black text-2xl uppercase mb-1">No Cure No Pay</p>
-                <p className="text-white/60 text-sm font-medium">Geen resultaat? Geen factuur.</p>
+              <div className="space-y-1.5">
+                {marketRates.map((rate) => (
+                  <div key={rate.service} className="flex items-center justify-between">
+                    <p className="text-white/50 text-[10px]">{rate.service}</p>
+                    <p className="text-white/70 text-[10px] font-bold">{rate.market}</p>
+                  </div>
+                ))}
               </div>
+              <p className="text-white/30 text-[9px] mt-2 italic">
+                Bronnen: Kenneth Smit, HubSpot Partner Directory, Consultancy.nl
+              </p>
             </div>
           </motion.div>
 
@@ -224,7 +219,7 @@ export const Pricing: React.FC = () => {
               <div className="text-gray-300 text-2xl font-light">vs</div>
               <div className="text-center">
                 <p className="text-gray-400 text-[10px] uppercase font-bold">Investering</p>
-                <p className="text-brand-purple font-black text-xl">{fmt(yearlyInvestment)}</p>
+                <motion.p key={yearlyInvestment} initial={{ scale: 0.95 }} animate={{ scale: 1 }} className="text-brand-purple font-black text-xl">{fmt(yearlyInvestment)}</motion.p>
                 <p className="text-gray-400 text-[9px]">per jaar</p>
               </div>
               <div className="text-center bg-brand-green/10 border border-brand-green/20 rounded-xl px-4 py-2">

@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Database, Zap, GraduationCap, ArrowRight, TrendingUp } from 'lucide-react';
+import { Database, Zap, GraduationCap, ArrowRight } from 'lucide-react';
 
 const pillars = [
   {
@@ -8,7 +8,7 @@ const pillars = [
     num: '01',
     title: 'CRM',
     subtitle: 'Haal meer uit je team',
-    description: 'Door CRM-trainingen haalt het team het maximale uit het systeem.',
+    description: 'Door CRM krijg je inzichten en acties vanuit je bestaande data.',
     stats: ['Signalen', 'Pipeline', 'Segmentatie'],
     color: 'brand-green',
     gradient: 'from-brand-green/20 to-brand-green/5',
@@ -28,7 +28,7 @@ const pillars = [
     num: '03',
     title: 'Training',
     subtitle: 'Vertrouwen & adoptie',
-    description: 'Door structurele sales-trainingen verhogen we de conversie en adoptie.',
+    description: 'Door structurele sales-trainingen verhogen we het CRM-gebruik, conversie en adoptie.',
     stats: ['On-site', 'Coaching', 'Strategie'],
     color: 'brand-pink',
     gradient: 'from-brand-pink/20 to-brand-pink/5',
@@ -70,7 +70,7 @@ export const ThreePillars: React.FC = () => {
         </motion.p>
 
         {/* Pillar cards */}
-        <div className="grid md:grid-cols-3 gap-5 mb-6">
+        <div className="grid md:grid-cols-3 gap-5">
           {pillars.map((pillar, index) => {
             const Icon = pillar.icon;
             return (
@@ -124,18 +124,6 @@ export const ThreePillars: React.FC = () => {
           })}
         </div>
 
-        {/* Result bar */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.7 }}
-          className="bg-brand-green/10 border border-brand-green/20 rounded-xl px-6 py-3 flex items-center justify-center gap-3"
-        >
-          <TrendingUp className="w-5 h-5 text-brand-green" />
-          <p className="text-white font-bold text-sm">
-            Samen = <span className="text-brand-green">meer omzet per medewerker eruit</span>
-          </p>
-        </motion.div>
       </div>
     </section>
   );

@@ -1,4 +1,4 @@
-import { ALL_SLIDE_KEYS, TEAM_MEMBERS, type ClientConfig } from '../types';
+import { ALL_SLIDE_KEYS, TOOL_SLIDES, TEAM_MEMBERS, type ClientConfig } from '../types';
 
 export const zonderCrmPreset: ClientConfig = {
   // === VUL IN PER KLANT ===
@@ -97,8 +97,8 @@ export const zonderCrmPreset: ClientConfig = {
   // Presenter on closing slide
   presenter: TEAM_MEMBERS[0], // Erwin Dijkstra default
 
-  // Some slides disabled by default for no-CRM clients
-  enabledSlides: ALL_SLIDE_KEYS.filter(key => ![
-    'AIAnalysis',       // Requires CRM integration
-  ].includes(key)),
+  // All slides enabled except tool slides and AIAnalysis (requires CRM)
+  enabledSlides: ALL_SLIDE_KEYS.filter(key =>
+    !TOOL_SLIDES.includes(key as any) && key !== 'AIAnalysis'
+  ),
 };

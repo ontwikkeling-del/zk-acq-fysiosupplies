@@ -16,20 +16,17 @@ import { TrackRecord } from './sections/TrackRecord';
 import { ClientSituation } from './sections/ClientSituation';
 import { MarketOverview } from './sections/MarketOverview';
 import { ClientBusinessCase } from './sections/ClientBusinessCase';
-import { SegmentStrategy } from './sections/SegmentStrategy';
 import { ThreePillars } from './sections/ThreePillars';
 import { CRMPillar } from './sections/CRMPillar';
 import { TrainingPillar } from './sections/TrainingPillar';
 import { AIAutomationPillar } from './sections/AIAutomationPillar';
 import { BusinessCase } from './sections/BusinessCase';
 import { TeamExpertise } from './sections/TeamExpertise';
-import { SetupSuccess } from './sections/SetupSuccess';
 import { B2BValue } from './sections/B2BValue';
 import { NewClients } from './sections/NewClients';
 import { MaxClientValue } from './sections/MaxClientValue';
 import { ActivePipeline } from './sections/ActivePipeline';
 import { SleepingClients } from './sections/SleepingClients';
-import { Dashboarding } from './sections/Dashboarding';
 import { FlowsAutomation } from './sections/FlowsAutomation';
 import { TradeShows } from './sections/TradeShows';
 import { LeadPipeline } from './sections/LeadPipeline';
@@ -48,11 +45,11 @@ import { ClosingCTA } from './sections/ClosingCTA';
 // Map slide keys to components
 const slideComponentMap: Record<string, React.FC> = {
   WelcomeSlide, IntroHook, TrackRecord,
-  ClientSituation, MarketOverview, ClientBusinessCase, SegmentStrategy,
+  ClientSituation, MarketOverview, ClientBusinessCase,
   ThreePillars, CRMPillar, TrainingPillar, AIAutomationPillar, BusinessCase,
-  TeamExpertise, Packages, SetupSuccess,
+  TeamExpertise, Packages,
   B2BValue, ActivePipeline, SleepingClients, NewClients, MaxClientValue,
-  Dashboarding, FlowsAutomation, TradeShows, LeadPipeline, ContactEnricher,
+  FlowsAutomation, TradeShows, LeadPipeline, ContactEnricher,
   AIEnrichment, QRSample, WebsiteTracker, AIAnalysis, QuoteAutomation,
   Pricing, Security, ClientLogos, ClosingCTA,
 };

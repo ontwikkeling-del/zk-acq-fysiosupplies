@@ -42,9 +42,18 @@ export const TrainingPillar: React.FC = () => {
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ delay: 0.4 }}
-              className="text-gray-600 text-lg leading-relaxed mb-6"
+              className="text-gray-600 text-lg leading-relaxed mb-4"
             >
               Veel partijen leveren een CRM, zeggen "succes ermee" en dat is het. Resultaat: niemand gebruikt het. Wij blijven erbij tot het team het écht omarmt.
+            </motion.p>
+
+            <motion.p
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ delay: 0.5 }}
+              className="text-gray-600 text-base leading-relaxed mb-6"
+            >
+              Maar... hoe voer je een kwalitatief sales gesprek? De juiste technieken zorgen voor hogere conversie in minder tijd.
             </motion.p>
 
             <motion.div

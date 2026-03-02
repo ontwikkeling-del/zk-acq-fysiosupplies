@@ -13,7 +13,7 @@ const phases = [
       { range: '5-6', label: 'Optimalisatie' },
       { range: '7-12', label: 'Onderhoud & uitbreiding' },
     ],
-    roi: 'Pipeline conversie +5%',
+    roi: 'Hogere conversie',
   },
   {
     icon: Bell,
@@ -25,7 +25,7 @@ const phases = [
       { range: '5-6', label: 'Escalatie & opvolging' },
       { range: '7-12', label: 'Continu monitoren' },
     ],
-    roi: '5% reactivatie = €50K',
+    roi: 'Minder churn',
   },
   {
     icon: TrendingUp,
@@ -34,10 +34,10 @@ const phases = [
     months: [
       { range: '1-2', label: 'Cross-sell kansen mappen' },
       { range: '3-4', label: 'Herhalingsflows' },
-      { range: '5-6', label: 'LTV verhogen' },
+      { range: '5-6', label: 'Klantwaarde verhogen' },
       { range: '7-12', label: 'Schalen & personalisatie' },
     ],
-    roi: 'LTV +15% per segment',
+    roi: 'Hogere klantwaarde',
   },
   {
     icon: UserPlus,
@@ -49,7 +49,7 @@ const phases = [
       { range: '7-9', label: 'Data-gedreven acquisitie' },
       { range: '10-12', label: 'Schalen' },
     ],
-    roi: 'Acquisitiekosten -30%',
+    roi: 'Lagere acquisitiekosten',
   },
 ];
 
