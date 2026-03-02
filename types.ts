@@ -245,12 +245,11 @@ export const ALL_SLIDE_KEYS = [
   'MarketOverview',
   'ClientBusinessCase',
   'ThreePillars',
-  // Pijlers uitdieping (CRM → AI → Segmentatie → Training)
+  // Pijlers uitdieping (CRM → AI → Training)
   'CRMPillar',
-  'SegmentStrategy',
   'AIAutomationPillar',
   'TrainingPillar',
-  // 4-fase roadmap
+  // 4 speerpunten
   'B2BValue',
   'ActivePipeline',
   'SleepingClients',
@@ -259,7 +258,7 @@ export const ALL_SLIDE_KEYS = [
   // Tools & data
   'Dashboarding',
   'FlowsAutomation',
-  // Individuele tools (beschikbaar via FlowsAutomation klik)
+  // Individuele tools (beschikbaar via FlowsAutomation/B2BValue klik)
   'TradeShows',
   'LeadPipeline',
   'ContactEnricher',
@@ -268,25 +267,26 @@ export const ALL_SLIDE_KEYS = [
   'WebsiteTracker',
   'AIAnalysis',
   'QuoteAutomation',
-  // Team & training
+  'SegmentStrategy',
+  // Team
   'TeamExpertise',
-  'TrainingDev',
   // Aanpak & investering
   'SetupSuccess',
   'Packages',
-  'Pricing',
   'BusinessCase',
+  'Pricing',
   // Afsluiting
-  'CaseStudyWovar',
   'Security',
   'ClientLogos',
   'ClosingCTA',
 ] as const;
 
-// Tool slides that should be hidden from main scroll (accessible via FlowsAutomation)
+// Tool slides that should be hidden from main scroll (accessible via popups)
 export const TOOL_SLIDES: SlideKey[] = [
   'TradeShows', 'LeadPipeline', 'ContactEnricher', 'AIEnrichment',
   'QRSample', 'WebsiteTracker', 'AIAnalysis', 'QuoteAutomation',
+  'SegmentStrategy',
+  'ActivePipeline', 'SleepingClients', 'MaxClientValue', 'NewClients',
 ];
 
 export type SlideKey = typeof ALL_SLIDE_KEYS[number];
@@ -296,20 +296,19 @@ export const SLIDE_LABELS: Record<SlideKey, string> = {
   WelcomeSlide: 'Welkom & Kennismaking',
   IntroHook: 'Opening Hook',
   TrackRecord: 'Track Record',
-  CaseStudyWovar: 'Het Team — Wat maakt ons uniek',
   ClientSituation: 'Huidige Situatie',
   MarketOverview: 'De Markt',
-  ClientBusinessCase: 'Business Case Klant',
+  ClientBusinessCase: 'Verhoog de waarde',
   ThreePillars: 'Drie Pijlers',
   CRMPillar: 'CRM — Signalen & Structuur',
   SegmentStrategy: 'Segmentatie & Signalen',
-  AIAutomationPillar: 'AI & Automatisering — Business Case',
+  AIAutomationPillar: 'AI & Automatisering',
   TrainingPillar: 'Training — Adoptie & Conversie',
-  B2BValue: '4-Fase Roadmap',
-  ActivePipeline: 'Fase 1 — Actief Opvolgen',
-  SleepingClients: 'Fase 2 — Slapende Klanten',
-  MaxClientValue: 'Fase 3 — Klanten Voller Maken',
-  NewClients: 'Fase 4 — Nieuwe Klanten',
+  B2BValue: '4 Speerpunten',
+  ActivePipeline: 'Speerpunt 1 — Actief Opvolgen',
+  SleepingClients: 'Speerpunt 2 — Slapende Klanten',
+  MaxClientValue: 'Speerpunt 3 — Klanten Voller Maken',
+  NewClients: 'Speerpunt 4 — Nieuwe Klanten',
   Dashboarding: 'Data Driven Organisatie',
   FlowsAutomation: 'Onze Tools',
   TradeShows: 'Beurzen & Events',
@@ -321,11 +320,10 @@ export const SLIDE_LABELS: Record<SlideKey, string> = {
   AIAnalysis: 'AI Gespreksanalyse',
   QuoteAutomation: 'Offerte Automatisering',
   TeamExpertise: 'Specialistische Kennis',
-  TrainingDev: 'Training & Strategie',
   SetupSuccess: 'Opzet voor Succes',
   Packages: '12-Maanden Plan',
+  BusinessCase: 'Business Case — Calculator',
   Pricing: 'Jouw Investering',
-  BusinessCase: 'Business Case — Totaaloverzicht',
   Security: 'Beveiliging & Compliance',
   ClientLogos: 'Onze Klanten',
   ClosingCTA: 'Afsluiting',
@@ -348,26 +346,26 @@ export const SLIDE_CATEGORIES: SlideCategory[] = [
   },
   {
     label: 'Pijlers',
-    slides: ['CRMPillar', 'SegmentStrategy', 'AIAutomationPillar', 'TrainingPillar'],
+    slides: ['CRMPillar', 'AIAutomationPillar', 'TrainingPillar'],
   },
   {
-    label: '4-Fase Roadmap',
+    label: '4 Speerpunten',
     slides: ['B2BValue', 'ActivePipeline', 'SleepingClients', 'MaxClientValue', 'NewClients'],
   },
   {
     label: 'Tools & Data',
-    slides: ['Dashboarding', 'FlowsAutomation', 'TradeShows', 'LeadPipeline', 'ContactEnricher', 'AIEnrichment', 'QRSample', 'WebsiteTracker', 'AIAnalysis', 'QuoteAutomation'],
+    slides: ['Dashboarding', 'FlowsAutomation', 'TradeShows', 'LeadPipeline', 'ContactEnricher', 'AIEnrichment', 'QRSample', 'WebsiteTracker', 'AIAnalysis', 'QuoteAutomation', 'SegmentStrategy'],
   },
   {
-    label: 'Team & Training',
-    slides: ['TeamExpertise', 'TrainingDev'],
+    label: 'Team',
+    slides: ['TeamExpertise'],
   },
   {
     label: 'Aanpak & Investering',
-    slides: ['SetupSuccess', 'Packages', 'Pricing', 'BusinessCase'],
+    slides: ['SetupSuccess', 'Packages', 'BusinessCase', 'Pricing'],
   },
   {
     label: 'Afsluiting',
-    slides: ['CaseStudyWovar', 'Security', 'ClientLogos', 'ClosingCTA'],
+    slides: ['Security', 'ClientLogos', 'ClosingCTA'],
   },
 ];

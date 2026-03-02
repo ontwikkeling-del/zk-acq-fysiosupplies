@@ -5,6 +5,7 @@ import { Navigation } from './components/Navigation';
 import { DiscussionPrompt } from './components/DiscussionPrompt';
 import { PresenterNotes } from './components/PresenterNotes';
 import { SettingsPanel } from './components/SettingsPanel';
+import { BusinessCaseProvider } from './BusinessCaseContext';
 import { config, ALL_SLIDE_KEYS } from './clientConfig';
 import { metCrmPreset, zonderCrmPreset } from './presets';
 import type { ClientConfig } from './types';
@@ -12,7 +13,6 @@ import type { ClientConfig } from './types';
 import { WelcomeSlide } from './sections/WelcomeSlide';
 import { IntroHook } from './sections/IntroHook';
 import { TrackRecord } from './sections/TrackRecord';
-import { CaseStudyWovar } from './sections/CaseStudyWovar';
 import { ClientSituation } from './sections/ClientSituation';
 import { MarketOverview } from './sections/MarketOverview';
 import { ClientBusinessCase } from './sections/ClientBusinessCase';
@@ -39,7 +39,6 @@ import { QRSample } from './sections/QRSample';
 import { WebsiteTracker } from './sections/WebsiteTracker';
 import { AIAnalysis } from './sections/AIAnalysis';
 import { QuoteAutomation } from './sections/QuoteAutomation';
-import { TrainingDev } from './sections/TrainingDev';
 import { Packages } from './sections/Packages';
 import { Pricing } from './sections/Pricing';
 import { Security } from './sections/Security';
@@ -48,14 +47,14 @@ import { ClosingCTA } from './sections/ClosingCTA';
 
 // Map slide keys to components
 const slideComponentMap: Record<string, React.FC> = {
-  WelcomeSlide, IntroHook, TrackRecord, CaseStudyWovar,
+  WelcomeSlide, IntroHook, TrackRecord,
   ClientSituation, MarketOverview, ClientBusinessCase, SegmentStrategy,
   ThreePillars, CRMPillar, TrainingPillar, AIAutomationPillar, BusinessCase,
   TeamExpertise, Packages, SetupSuccess,
   B2BValue, ActivePipeline, SleepingClients, NewClients, MaxClientValue,
   Dashboarding, FlowsAutomation, TradeShows, LeadPipeline, ContactEnricher,
   AIEnrichment, QRSample, WebsiteTracker, AIAnalysis, QuoteAutomation,
-  TrainingDev, Pricing, Security, ClientLogos, ClosingCTA,
+  Pricing, Security, ClientLogos, ClosingCTA,
 };
 
 const STORAGE_KEY = 'v4-slide-config';
@@ -260,6 +259,7 @@ export default function App() {
   }, [currentSection, navigateToSection, totalSections, showSettings]);
 
   return (
+    <BusinessCaseProvider>
     <div className="relative bg-gray-50 text-brand-purple overflow-hidden">
       <Navigation
         currentSection={currentSection}
@@ -332,5 +332,6 @@ export default function App() {
         ))}
       </div>
     </div>
+    </BusinessCaseProvider>
   );
 }

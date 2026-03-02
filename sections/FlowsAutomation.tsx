@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Zap, Ticket, GitBranch, UserCheck, Brain, QrCode, Globe, Mic, FileText, Wrench, ArrowRight, X } from 'lucide-react';
+import { Zap, Ticket, GitBranch, UserCheck, Brain, QrCode, Globe, Mic, FileText, Layers, Wrench, ArrowRight, X } from 'lucide-react';
 import { TradeShows } from './TradeShows';
 import { LeadPipeline } from './LeadPipeline';
 import { ContactEnricher } from './ContactEnricher';
@@ -9,6 +9,7 @@ import { QRSample } from './QRSample';
 import { WebsiteTracker } from './WebsiteTracker';
 import { AIAnalysis } from './AIAnalysis';
 import { QuoteAutomation } from './QuoteAutomation';
+import { SegmentStrategy } from './SegmentStrategy';
 
 const tools = [
   { icon: Ticket, title: 'Beurzen & Events', benefit: 'Lead direct in CRM na scan', color: 'brand-green', slideKey: 'TradeShows' },
@@ -19,11 +20,12 @@ const tools = [
   { icon: Globe, title: 'Website Lead Tracker', benefit: 'Anonieme bezoekers → bedrijfsnaam', color: 'brand-pink', slideKey: 'WebsiteTracker' },
   { icon: Mic, title: 'AI Gespreksanalyse', benefit: 'Auto-samenvatting & coaching tips', color: 'brand-green', slideKey: 'AIAnalysis' },
   { icon: FileText, title: 'Offerte Automatisering', benefit: 'Snellere opvolging, hogere conversie', color: 'brand-accent', slideKey: 'QuoteAutomation' },
+  { icon: Layers, title: 'Segmentatie & Signalen', benefit: 'Elke klant de juiste aanpak', color: 'brand-purple', slideKey: 'SegmentStrategy' },
 ];
 
 const slideComponentMap: Record<string, React.FC> = {
   TradeShows, LeadPipeline, ContactEnricher, AIEnrichment,
-  QRSample, WebsiteTracker, AIAnalysis, QuoteAutomation,
+  QRSample, WebsiteTracker, AIAnalysis, QuoteAutomation, SegmentStrategy,
 };
 
 export const FlowsAutomation: React.FC = () => {

@@ -36,22 +36,6 @@ export const SetupSuccess: React.FC = () => {
           Geen consultants maar extra specialistische teamleden. Onderdeel van jullie team.
         </motion.p>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6 }}
-          className="bg-white shadow-lg border border-brand-green/20 rounded-2xl px-8 py-8 max-w-2xl mx-auto"
-        >
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ delay: 0.9 }}
-          >
-            <p className="text-gray-700 text-xl md:text-2xl font-medium italic leading-relaxed">
-              "De kracht zit in de <span className="text-brand-green font-bold">combinatie</span>. Technologie werkt pas als je team het <span className="text-brand-green font-bold">omarmt</span>"
-            </p>
-          </motion.div>
-        </motion.div>
       </div>
     </section>
   );

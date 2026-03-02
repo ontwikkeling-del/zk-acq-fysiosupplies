@@ -1,12 +1,11 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { AlertTriangle, Users, Phone, Package, Building2, UserX } from 'lucide-react';
+import { AlertTriangle, Users, Phone, Package, UserX } from 'lucide-react';
 
 const bullets = [
   { icon: Phone, text: '"Wij benaderen eigenlijk niet" — klanten vinden ons', color: 'brand-accent' },
   { icon: Users, text: '2 accountmanagers binnendienst (buitendienst afgeschaft)', color: 'brand-accent' },
   { icon: Package, text: '12.000+ producten: van €3 tape tot €35.000 apparatuur — geen segmentatie', color: 'brand-accent' },
-  { icon: Building2, text: 'Onderdeel Asker Healthcare (beursgenoteerd, €1,4 mrd omzet)', color: 'brand-accent' },
 ];
 
 export const ClientSituation: React.FC = () => {

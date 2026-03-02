@@ -1,8 +1,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Check, Zap, BarChart3, Users } from 'lucide-react';
+import { Check, Zap, BarChart3, Users, TrendingUp } from 'lucide-react';
 import { config } from '../clientConfig';
 import { calculatePrice } from '../types';
+import { useBusinessCase } from '../BusinessCaseContext';
+
+const fmt = (val: number) =>
+  new Intl.NumberFormat('nl-NL', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 }).format(val);
 
 const fullFeatures = [
   '8 uur training per maand',
@@ -42,6 +46,9 @@ export const Pricing: React.FC = () => {
   const salesCount = config.salesCount || 3;
   const price = calculatePrice(pkg, salesCount);
   const features = pkg === 'full' ? fullFeatures : liteFeatures;
+  const { totals } = useBusinessCase();
+  const yearlyInvestment = price * 12;
+  const roi = yearlyInvestment > 0 ? totals.total / yearlyInvestment : 0;
 
   return (
     <section className="h-screen w-screen snap-start relative overflow-hidden flex items-center justify-center bg-[#f8f5ff]">
@@ -190,6 +197,43 @@ export const Pricing: React.FC = () => {
             </div>
           </motion.div>
         </div>
+
+        {/* ROI comparison bar */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6 }}
+          className="mt-5 bg-white border border-brand-green/20 rounded-2xl p-4 shadow-sm"
+        >
+          <div className="flex items-center justify-between flex-wrap gap-4">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 bg-brand-green/10 rounded-full flex items-center justify-center">
+                <TrendingUp className="w-5 h-5 text-brand-green" />
+              </div>
+              <div>
+                <p className="text-brand-purple font-black text-sm uppercase">Return on Investment</p>
+                <p className="text-gray-400 text-[10px]">Op basis van jullie business case</p>
+              </div>
+            </div>
+            <div className="flex items-center gap-6">
+              <div className="text-center">
+                <p className="text-gray-400 text-[10px] uppercase font-bold">Geschatte impact</p>
+                <motion.p key={totals.total} initial={{ scale: 0.95 }} animate={{ scale: 1 }} className="text-brand-green font-black text-xl">{fmt(totals.total)}</motion.p>
+                <p className="text-gray-400 text-[9px]">per jaar</p>
+              </div>
+              <div className="text-gray-300 text-2xl font-light">vs</div>
+              <div className="text-center">
+                <p className="text-gray-400 text-[10px] uppercase font-bold">Investering</p>
+                <p className="text-brand-purple font-black text-xl">{fmt(yearlyInvestment)}</p>
+                <p className="text-gray-400 text-[9px]">per jaar</p>
+              </div>
+              <div className="text-center bg-brand-green/10 border border-brand-green/20 rounded-xl px-4 py-2">
+                <motion.p key={roi.toFixed(1)} initial={{ scale: 0.95 }} animate={{ scale: 1 }} className="text-brand-green font-black text-2xl">{roi.toFixed(1)}&times;</motion.p>
+                <p className="text-brand-green/70 text-[9px] font-bold uppercase">ROI</p>
+              </div>
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
