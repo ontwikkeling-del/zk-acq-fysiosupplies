@@ -149,10 +149,10 @@ export const Pricing: React.FC = () => {
                 </p>
               </div>
 
-              <div className="bg-brand-green/10 border border-brand-green/20 rounded-xl p-3 text-center">
-                <Zap className="w-5 h-5 text-brand-green mx-auto mb-1" />
-                <p className="text-brand-green font-bold text-sm">No Cure No Pay</p>
-                <p className="text-white/40 text-[10px]">Geen resultaat? Geen factuur.</p>
+              <div className="bg-brand-green/20 border-2 border-brand-green/40 rounded-2xl p-6 text-center">
+                <Zap className="w-10 h-10 text-brand-green mx-auto mb-3" />
+                <p className="text-brand-green font-black text-2xl uppercase mb-1">No Cure No Pay</p>
+                <p className="text-white/60 text-sm font-medium">Geen resultaat? Geen factuur.</p>
               </div>
             </div>
           </motion.div>

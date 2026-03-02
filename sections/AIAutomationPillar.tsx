@@ -37,13 +37,13 @@ const timeSavings = [
 const totalHours = timeSavings.reduce((sum, s) => sum + s.hours, 0);
 const totalEuro = totalHours * HOURLY_RATE;
 
-const months = [
-  { month: 'Maand 1', title: 'Basis automatisering', desc: 'Orderverwerking & klantherkenning' },
-  { month: 'Maand 2', title: 'Data verrijking', desc: 'AI bedrijfsprofielen & contactverrijking' },
-  { month: 'Maand 3', title: 'Slimme taken', desc: 'Automatische opvolgtaken voor sales' },
-  { month: 'Maand 4-6', title: 'Uitbreiden', desc: 'Flows, campagnes & lead scoring' },
-  { month: 'Maand 7-9', title: 'Optimaliseren', desc: 'Data-analyse & bijsturing op ROI' },
-  { month: 'Maand 10-12', title: 'Schalen', desc: 'Nieuwe modules & volle automatisering' },
+const topics = [
+  { title: 'Basis automatisering', desc: 'Orderverwerking & klantherkenning' },
+  { title: 'Data verrijking', desc: 'AI bedrijfsprofielen & contactverrijking' },
+  { title: 'Slimme taken', desc: 'Automatische opvolgtaken voor sales' },
+  { title: 'Uitbreiden', desc: 'Flows & campagnes' },
+  { title: 'Optimaliseren', desc: 'Data-analyse & bijsturing op ROI' },
+  { title: 'Schalen', desc: 'Nieuwe modules & volle automatisering' },
 ];
 
 export const AIAutomationPillar: React.FC = () => {
@@ -63,10 +63,10 @@ export const AIAutomationPillar: React.FC = () => {
             <motion.div
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
-              className="inline-flex items-center gap-2 bg-brand-accent/10 border border-brand-accent/20 rounded-full px-4 py-1.5 mb-6"
+              className="inline-flex items-center gap-3 bg-brand-accent/10 border-2 border-brand-accent/30 rounded-full px-6 py-3 mb-6"
             >
-              <Zap className="w-4 h-4 text-brand-accent" />
-              <span className="text-brand-accent font-bold text-xs uppercase tracking-wider">Pijler 2: AI & Automatisering</span>
+              <Zap className="w-6 h-6 text-brand-accent" />
+              <span className="text-brand-accent font-black text-lg uppercase tracking-wider">Pijler 2: AI & Automatisering</span>
             </motion.div>
 
             <motion.h2
@@ -93,21 +93,16 @@ export const AIAutomationPillar: React.FC = () => {
 
             {/* Monthly roadmap */}
             <div className="space-y-2.5">
-              {months.map((m, index) => (
+              {topics.map((t, index) => (
                 <motion.div
-                  key={m.month}
+                  key={t.title}
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.4 + index * 0.08 }}
-                  className="flex items-center gap-3"
+                  className="flex-1 bg-white border border-gray-100 rounded-xl px-3 py-2.5"
                 >
-                  <div className="w-auto min-w-[68px] h-9 bg-brand-accent/10 border border-brand-accent/20 rounded-full flex items-center justify-center shrink-0 px-3">
-                    <span className="text-brand-accent font-black text-[10px] whitespace-nowrap">{m.month}</span>
-                  </div>
-                  <div className="flex-1 bg-white border border-gray-100 rounded-xl px-3 py-2.5">
-                    <p className="text-brand-purple font-bold text-sm">{m.title}</p>
-                    <p className="text-gray-400 text-[11px]">{m.desc}</p>
-                  </div>
+                  <p className="text-brand-purple font-bold text-sm">{t.title}</p>
+                  <p className="text-gray-400 text-[11px]">{t.desc}</p>
                 </motion.div>
               ))}
             </div>

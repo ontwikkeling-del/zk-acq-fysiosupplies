@@ -50,22 +50,7 @@ export const WelcomeSlide: React.FC = () => {
             </p>
           </div>
 
-          <div className="space-y-3 max-w-2xl mx-auto">
-            {config.welcomeQuestions.map((q, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.4 + index * 0.15 }}
-                className="bg-white/70 shadow-sm border border-gray-100 rounded-xl p-4 flex items-start gap-4 hover:border-brand-green/30 transition-all"
-              >
-                <div className="w-8 h-8 bg-brand-green/20 rounded-full flex items-center justify-center shrink-0 mt-0.5">
-                  <MessageCircle className="w-4 h-4 text-brand-green" />
-                </div>
-                <p className="text-gray-700 text-sm md:text-base font-medium leading-relaxed">{resolveTemplate(q, config)}</p>
-              </motion.div>
-            ))}
-          </div>
+          {/* Questions removed per feedback */}
         </motion.div>
       </div>
     </section>

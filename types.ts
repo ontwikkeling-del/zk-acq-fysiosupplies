@@ -240,7 +240,6 @@ export const ALL_SLIDE_KEYS = [
   'WelcomeSlide',
   'IntroHook',
   'TrackRecord',
-  'CaseStudyWovar',
   // Klant-specifiek & framework
   'ClientSituation',
   'MarketOverview',
@@ -278,6 +277,7 @@ export const ALL_SLIDE_KEYS = [
   'Pricing',
   'BusinessCase',
   // Afsluiting
+  'CaseStudyWovar',
   'Security',
   'ClientLogos',
   'ClosingCTA',
@@ -296,7 +296,7 @@ export const SLIDE_LABELS: Record<SlideKey, string> = {
   WelcomeSlide: 'Welkom & Kennismaking',
   IntroHook: 'Opening Hook',
   TrackRecord: 'Track Record',
-  CaseStudyWovar: 'Klantverhaal Wovar',
+  CaseStudyWovar: 'Het Team — Wat maakt ons uniek',
   ClientSituation: 'Huidige Situatie',
   MarketOverview: 'De Markt',
   ClientBusinessCase: 'Business Case Klant',
@@ -340,7 +340,7 @@ export interface SlideCategory {
 export const SLIDE_CATEGORIES: SlideCategory[] = [
   {
     label: 'Introductie & Bewijs',
-    slides: ['WelcomeSlide', 'IntroHook', 'TrackRecord', 'CaseStudyWovar'],
+    slides: ['WelcomeSlide', 'IntroHook', 'TrackRecord'],
   },
   {
     label: 'Klant & Framework',
@@ -368,6 +368,6 @@ export const SLIDE_CATEGORIES: SlideCategory[] = [
   },
   {
     label: 'Afsluiting',
-    slides: ['Security', 'ClientLogos', 'ClosingCTA'],
+    slides: ['CaseStudyWovar', 'Security', 'ClientLogos', 'ClosingCTA'],
   },
 ];

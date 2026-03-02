@@ -55,10 +55,10 @@ export const CRMPillar: React.FC = () => {
             <motion.div
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
-              className="inline-flex items-center gap-2 bg-brand-green/10 border border-brand-green/20 rounded-full px-4 py-1.5 mb-6"
+              className="inline-flex items-center gap-3 bg-brand-green/10 border-2 border-brand-green/30 rounded-full px-6 py-3 mb-6"
             >
-              <Database className="w-4 h-4 text-brand-green" />
-              <span className="text-brand-green font-bold text-xs uppercase tracking-wider">Pijler 1: CRM</span>
+              <Database className="w-6 h-6 text-brand-green" />
+              <span className="text-brand-green font-black text-lg uppercase tracking-wider">Pijler 1: CRM</span>
             </motion.div>
 
             <motion.h2

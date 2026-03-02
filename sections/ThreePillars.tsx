@@ -8,7 +8,7 @@ const pillars = [
     num: '01',
     title: 'CRM',
     subtitle: 'Haal meer uit je team',
-    description: 'Een data-driven CRM zodat medewerkers precies weten wat ze moeten doen.',
+    description: 'Door CRM-trainingen haalt het team het maximale uit het systeem.',
     stats: ['Signalen', 'Pipeline', 'Segmentatie'],
     color: 'brand-green',
     gradient: 'from-brand-green/20 to-brand-green/5',
@@ -18,7 +18,7 @@ const pillars = [
     num: '02',
     title: 'AI & Automatisering',
     subtitle: 'Maak tijd vrij voor sales',
-    description: '70% admin → 70% sales. Juiste data automatisch, administratie weg.',
+    description: 'Herhalende werkzaamheden worden geautomatiseerd; hierdoor bespaar je tijd.',
     stats: ['Flows', 'Verrijking', 'Scoring'],
     color: 'brand-accent',
     gradient: 'from-brand-accent/20 to-brand-accent/5',
@@ -28,7 +28,7 @@ const pillars = [
     num: '03',
     title: 'Training',
     subtitle: 'Vertrouwen & adoptie',
-    description: 'Een systeem werkt pas als het team het omarmt. Mensen weten HOE ze moeten bellen. Daarom trainen wij op de werkvloer.',
+    description: 'Door structurele sales-trainingen verhogen we de conversie en adoptie.',
     stats: ['On-site', 'Coaching', 'Strategie'],
     color: 'brand-pink',
     gradient: 'from-brand-pink/20 to-brand-pink/5',
@@ -66,7 +66,7 @@ export const ThreePillars: React.FC = () => {
           transition={{ delay: 0.15 }}
           className="text-white/40 text-sm text-center mb-10 max-w-2xl mx-auto"
         >
-          Alles draait om meer omzet per medewerker. Structuur, slim werken en vertrouwen.
+          Door mens en techniek samen aan te pakken, verhogen we het rendement.
         </motion.p>
 
         {/* Pillar cards */}
@@ -133,7 +133,7 @@ export const ThreePillars: React.FC = () => {
         >
           <TrendingUp className="w-5 h-5 text-brand-green" />
           <p className="text-white font-bold text-sm">
-            Samen = <span className="text-brand-green">meer omzet per medewerker</span>
+            Samen = <span className="text-brand-green">meer omzet per medewerker eruit</span>
           </p>
         </motion.div>
       </div>

@@ -45,7 +45,7 @@ const phases = [
     color: 'brand-purple',
     months: [
       { range: '1-4', label: 'Fundament bouwen' },
-      { range: '5-6', label: 'Outreach & lead scoring' },
+      { range: '5-6', label: 'Outreach & acquisitie' },
       { range: '7-9', label: 'Data-gedreven acquisitie' },
       { range: '10-12', label: 'Schalen' },
     ],
@@ -84,7 +84,7 @@ export const Packages: React.FC = () => {
             transition={{ delay: 0.15 }}
             className="text-gray-400 text-sm"
           >
-            Vier fases, twaalf maanden. Elke fase bouwt voort en levert direct resultaat.
+            Vier onderwerpen, twaalf maanden. Elk onderwerp bouwt voort en levert direct resultaat.
           </motion.p>
         </div>
 

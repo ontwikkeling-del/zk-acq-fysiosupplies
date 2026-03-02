@@ -54,10 +54,10 @@ export const TrainingPillar: React.FC = () => {
             <motion.div
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
-              className="inline-flex items-center gap-2 bg-brand-pink/10 border border-brand-pink/20 rounded-full px-4 py-1.5 mb-6"
+              className="inline-flex items-center gap-3 bg-brand-pink/10 border-2 border-brand-pink/30 rounded-full px-6 py-3 mb-6"
             >
-              <GraduationCap className="w-4 h-4 text-brand-pink" />
-              <span className="text-brand-pink font-bold text-xs uppercase tracking-wider">Pijler 3: Training</span>
+              <GraduationCap className="w-6 h-6 text-brand-pink" />
+              <span className="text-brand-pink font-black text-lg uppercase tracking-wider">Pijler 3: Training</span>
             </motion.div>
 
             <motion.h2
@@ -90,11 +90,11 @@ export const TrainingPillar: React.FC = () => {
             >
               <div className="flex items-start gap-3">
                 <Users className="w-5 h-5 text-brand-pink mt-1 shrink-0" />
-                <p className="text-gray-600"><strong className="text-brand-purple">CRM training</strong> zodat het team het systeem omarmt</p>
+                <p className="text-gray-600"><strong className="text-brand-purple">Sales:</strong> intensieve begeleiding, conversie verhogen</p>
               </div>
               <div className="flex items-start gap-3">
                 <MessageSquare className="w-5 h-5 text-brand-pink mt-1 shrink-0" />
-                <p className="text-gray-600"><strong className="text-brand-purple">Sales training</strong> voor vertrouwen in elk gesprek</p>
+                <p className="text-gray-600"><strong className="text-brand-purple">CRM:</strong> Haal het maximale uit het systeem</p>
               </div>
             </motion.div>
           </div>
