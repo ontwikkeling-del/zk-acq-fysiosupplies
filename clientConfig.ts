@@ -2,12 +2,12 @@
 export { ALL_SLIDE_KEYS, SLIDE_LABELS } from './types';
 export type { ClientConfig, SlideKey } from './types';
 
-// Active config — FysioSupplies
-import { metCrmPreset } from './presets/met-crm';
+// Active config — FysioSupplies (geen CRM)
+import { zonderCrmPreset } from './presets/zonder-crm';
 import { TEAM_MEMBERS } from './types';
 
 export const config = {
-  ...metCrmPreset,
+  ...zonderCrmPreset,
   clientName: 'FysioSupplies',
   clientLogo: '/fysiosupplies-logo.png',
   clientBackgroundImage: '/bg-fysio.jpg',
@@ -15,17 +15,17 @@ export const config = {
   presentationSubtitle: 'Voordat we iets laten zien, zijn wij vooral benieuwd naar jullie. Want dit gesprek gaat over FysioSupplies — niet over ons.',
 
   crmSystem: 'HubSpot',
-  erpSystem: 'Exact',
-  hasCRM: true,
+  erpSystem: 'MS Dynamics Business Central',
+  hasCRM: false,
 
   branch: 'handel',
   hasResellers: false,
   clientTypeLabel: 'fysiotherapiepraktijken',
 
   welcomeQuestions: [
-    'Als een praktijk al 3 maanden niets besteld heeft — krijgt iemand dan een signaal vanuit HubSpot?',
-    'Kan HubSpot jullie vertellen welke klanten alleen tape bestellen, maar geen behandeltafels of apparatuur?',
-    'Als Rutger morgen ziek is — wie pakt zijn klanten dan op met alle context en afspraken?',
+    'Van de bijna 47.000 klanten in 3 jaar koopt 70% maar één keer — hoe proberen jullie die terug te krijgen?',
+    'Als een praktijk stopt met bestellen — merkt iemand dat op, of gaat dat op gevoel?',
+    'Jullie directe verkoop is €1,7M — welk deel daarvan zou hoger kunnen als sales meer inzicht had?',
   ],
 
   segments: [
@@ -35,37 +35,37 @@ export const config = {
   ],
 
   newClientSteps: [
-    { icon: 'Search' as const, text: 'Nieuwe praktijken identificeren via data — ICP op basis van bestelhistorie top-klanten' },
+    { icon: 'Search' as const, text: 'Van de 32.586 eenmalige kopers: wie heeft het potentieel om terugkerende klant te worden?' },
     { icon: 'Target' as const, text: 'Na vakbeurzen: leads automatisch in HubSpot, gestructureerde opvolging' },
-    { icon: 'Mail' as const, text: 'Structurele marktbewerking: contactmomenten om van prospect een klant te maken' },
-    { icon: 'Phone' as const, text: 'Accountmanagers krijgen wekelijks overzicht: nieuwe leads, opvolgtaken, pipeline-status' },
+    { icon: 'Mail' as const, text: 'Structurele marktbewerking: contactmomenten om van prospect een vaste klant te maken' },
+    { icon: 'Phone' as const, text: 'Binnendienst krijgt wekelijks overzicht: heractivatie-kansen, opvolgtaken, pipeline-status' },
   ],
 
-  repeatPurchaseText: 'Besteldata uit HubSpot en Exact koppelen aan slimme AI. Automatisch signaleren wanneer een praktijk afwijkt van het normale bestelpatroon — voordat ze bij de concurrent bestellen.',
-  dataSourceLabel: 'HubSpot + Exact',
+  repeatPurchaseText: 'Besteldata uit MS Dynamics Business Central koppelen aan HubSpot en slimme AI. Automatisch signaleren wanneer een praktijk afwijkt van het normale bestelpatroon — voordat ze bij de concurrent bestellen.',
+  dataSourceLabel: 'MS Dynamics BC',
 
   approachPhases: [
     {
       title: 'Analyse',
       subtitle: 'Situatie in kaart brengen',
       items: [
-        'Bestelpatronen en klantwaarde analyseren vanuit HubSpot & Exact',
-        'Slapende klanten en cross-sell kansen identificeren',
-        'Quick wins bepalen: pipeline, signalen, dashboards',
+        'Bestelpatronen en klantwaarde analyseren vanuit Business Central',
+        '32.586 eenmalige kopers segmenteren: wie is heractiveerbaar?',
+        'Quick wins bepalen: herhaalaankoop-signalen, cross-sell kansen',
       ],
     },
     {
-      title: 'Inrichting',
-      subtitle: 'HubSpot optimaliseren',
+      title: 'HubSpot Implementatie',
+      subtitle: 'CRM inrichten naast Business Central',
       items: [
-        'HubSpot koppelen aan Exact via API — besteldata syncen',
-        'Pipeline inrichten: prospect → proefbestelling → vaste klant',
+        'HubSpot inrichten: pipelines, properties, dashboards',
+        'Koppeling met Business Central — besteldata syncen',
         'Automatische signalen bij wegvallende bestellers',
       ],
     },
     {
       title: 'Training',
-      subtitle: 'Rutger en het salesteam',
+      subtitle: 'Jeroen en het salesteam',
       items: [
         'Praktisch op de werkvloer, met echte klanten',
         'Focus: dashboard lezen, opvolgtaken, cross-sell herkennen',
@@ -78,7 +78,7 @@ export const config = {
       items: [
         'Bestelpatronen monitoren en bijsturen',
         'Cross-sell triggers optimaliseren (tape → tafels, apparatuur)',
-        'Beurs-ROI meten en opvolging verbeteren',
+        'Herhaalaankoop-ratio verhogen: van 30% naar 40%+',
       ],
     },
   ],

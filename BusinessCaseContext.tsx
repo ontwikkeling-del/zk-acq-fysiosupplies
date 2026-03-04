@@ -1,20 +1,21 @@
 import React, { createContext, useContext, useState, type ReactNode } from 'react';
 
-// FysioSupplies defaults — pre-filled estimates
+// FysioSupplies defaults — gebaseerd op B2B vragenlijst data
+// 46.873 klanten in 3 jaar, €13,9M omzet, 69,5% koopt maar 1 keer
 const DEFAULTS = {
-  // Klantbehoud
-  actieveKlanten: 2000,
-  gemJaaromzet: 1800,
-  huidigChurn: 12,
-  verbeterdChurn: 8,
-  // Nieuwe klanten
-  extraNieuweKlanten: 25,
-  gemEersteJaaromzet: 1500,
-  // Cross-sell & upsell
-  crossSellKlanten: 300,
-  extraOmzetPerKlant: 500,
-  // Tijdsbesparing
-  urenPerWeek: 12,
+  // Klantbehoud (focus: 14.287 herhalers behouden)
+  actieveKlanten: 14000,
+  gemJaaromzet: 600,
+  huidigChurn: 15,
+  verbeterdChurn: 10,
+  // Nieuwe klanten (heractivatie eenmalige kopers)
+  extraNieuweKlanten: 50,
+  gemEersteJaaromzet: 400,
+  // Cross-sell & upsell (12.000+ producten, klanten kopen maar 1 categorie)
+  crossSellKlanten: 500,
+  extraOmzetPerKlant: 300,
+  // Tijdsbesparing (geen CRM, alles handmatig)
+  urenPerWeek: 15,
   uurtarief: 35,
 };
 

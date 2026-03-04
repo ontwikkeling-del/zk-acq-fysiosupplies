@@ -1,12 +1,13 @@
 // @personalization: HIGH — bullets (6x), riskCards (3x), slotcitaat, iconkeuze. Gebruik echte klantdata uit briefing + B2B Vragenlijst. Geen verzonnen getallen.
 import React from 'react';
 import { motion } from 'framer-motion';
-import { AlertTriangle, Users, Phone, Package, UserX } from 'lucide-react';
+import { AlertTriangle, Users, ShoppingCart, Package, UserX, Database } from 'lucide-react';
 
 const bullets = [
-  { icon: Phone, text: '"Wij benaderen eigenlijk niet" — klanten vinden ons', color: 'brand-accent' },
-  { icon: Users, text: '2 accountmanagers binnendienst (buitendienst afgeschaft)', color: 'brand-accent' },
-  { icon: Package, text: '12.000+ producten: van €3 tape tot €35.000 apparatuur — geen segmentatie', color: 'brand-accent' },
+  { icon: ShoppingCart, text: '€13,9M omzet — waarvan 88% via webshop, slechts 12% directe verkoop (€1,7M)', color: 'brand-accent' },
+  { icon: Users, text: '46.873 klanten in 3 jaar, maar 69,5% koopt maar één keer (32.586 eenmalige kopers)', color: 'brand-accent' },
+  { icon: Database, text: 'Geen CRM — klantdata verspreid over Business Central, Magento, Klaviyo en Excel', color: 'brand-accent' },
+  { icon: Package, text: '12.000+ producten: van €3 tape tot €35.000 apparatuur — geen segmentatie op klantwaarde', color: 'brand-accent' },
 ];
 
 export const ClientSituation: React.FC = () => {
@@ -70,8 +71,8 @@ export const ClientSituation: React.FC = () => {
               transition={{ delay: 0.8 }}
               className="mt-6 bg-red-50 border border-red-200 rounded-xl px-4 py-3"
             >
-              <p className="text-red-600 font-bold text-sm">~10 klantenservice-medewerkers = primaire contactlijn</p>
-              <p className="text-red-400 text-xs mt-1">Geen proactieve sales, geen signalen bij weglopende klanten</p>
+              <p className="text-red-600 font-bold text-sm">Slechts 7.832 klanten (16,7%) bestellen 3+ keer</p>
+              <p className="text-red-400 text-xs mt-1">Geen signalen, geen heractivatie, geen proactief klantbehoud</p>
             </motion.div>
           </div>
 
@@ -112,7 +113,7 @@ export const ClientSituation: React.FC = () => {
               >
                 <p className="text-brand-purple font-black text-sm uppercase mb-1">Het kernprobleem</p>
                 <p className="text-gray-700 text-sm leading-relaxed">
-                  Klanten vallen weg zonder dat iemand het opmerkt. Geen signaal, geen opvolging, geen tweede kans.
+                  32.586 klanten kochten één keer en nooit meer. Geen signaal, geen opvolging, geen tweede kans.
                 </p>
               </motion.div>
             </motion.div>
