@@ -4,10 +4,10 @@ import { motion } from 'framer-motion';
 import { AlertTriangle, Users, ShoppingCart, Package, UserX, Database } from 'lucide-react';
 
 const bullets = [
-  { icon: ShoppingCart, text: '€13,9M omzet — waarvan 88% via webshop, slechts 12% directe verkoop (€1,7M)', color: 'brand-accent' },
-  { icon: Users, text: '46.873 klanten in 3 jaar, maar 69,5% koopt maar één keer (32.586 eenmalige kopers)', color: 'brand-accent' },
-  { icon: Database, text: 'Geen CRM — klantdata verspreid over Business Central, Magento, Klaviyo en Excel', color: 'brand-accent' },
-  { icon: Package, text: '12.000+ producten: van €3 tape tot €35.000 apparatuur — geen segmentatie op klantwaarde', color: 'brand-accent' },
+  { icon: ShoppingCart, text: '€13,9M omzet — 88% via de webshop, 12% directe verkoop (€1,7M)', color: 'brand-accent' },
+  { icon: Users, text: '46.873 klanten in 3 jaar — 32.586 daarvan bestelden één keer', color: 'brand-accent' },
+  { icon: Database, text: 'Klantdata in Business Central, Magento, Klaviyo — wat gebeurt er als iemand stopt met bestellen?', color: 'brand-accent' },
+  { icon: Package, text: '12.000+ producten: van €3 tape tot €35.000 apparatuur', color: 'brand-accent' },
 ];
 
 export const ClientSituation: React.FC = () => {
@@ -31,7 +31,7 @@ export const ClientSituation: React.FC = () => {
               className="inline-flex items-center gap-2 bg-brand-accent/10 border border-brand-accent/20 rounded-full px-4 py-1.5 mb-6"
             >
               <AlertTriangle className="w-4 h-4 text-brand-accent" />
-              <span className="text-brand-accent font-bold text-xs uppercase tracking-wider">Huidige Situatie</span>
+              <span className="text-brand-accent font-bold text-xs uppercase tracking-wider">Wat we zien</span>
             </motion.div>
 
             <motion.h2
@@ -42,7 +42,7 @@ export const ClientSituation: React.FC = () => {
             >
               FysioSupplies
               <br />
-              <span className="text-brand-accent">vandaag</span>
+              <span className="text-brand-accent">in cijfers</span>
             </motion.h2>
 
             <div className="space-y-4">
@@ -69,10 +69,10 @@ export const ClientSituation: React.FC = () => {
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ delay: 0.8 }}
-              className="mt-6 bg-red-50 border border-red-200 rounded-xl px-4 py-3"
+              className="mt-6 bg-brand-purple/5 border border-brand-purple/15 rounded-xl px-4 py-3"
             >
-              <p className="text-red-600 font-bold text-sm">Slechts 7.832 klanten (16,7%) bestellen 3+ keer</p>
-              <p className="text-red-400 text-xs mt-1">Geen signalen, geen heractivatie, geen proactief klantbehoud</p>
+              <p className="text-brand-purple font-bold text-sm">De vraag die wij stellen</p>
+              <p className="text-gray-500 text-xs mt-1">Wat zou er gebeuren als je 10% van die eenmalige kopers terughaalt?</p>
             </motion.div>
           </div>
 
@@ -111,9 +111,9 @@ export const ClientSituation: React.FC = () => {
                 transition={{ delay: 1.0 }}
                 className="mt-5 bg-brand-purple/5 border border-brand-purple/10 rounded-xl p-4"
               >
-                <p className="text-brand-purple font-black text-sm uppercase mb-1">Het kernprobleem</p>
+                <p className="text-brand-purple font-black text-sm uppercase mb-1">De vraag</p>
                 <p className="text-gray-700 text-sm leading-relaxed">
-                  32.586 klanten kochten één keer en nooit meer. Geen signaal, geen opvolging, geen tweede kans.
+                  Weten jullie wanneer een klant stopt met bestellen? En wat doen jullie dan?
                 </p>
               </motion.div>
             </motion.div>
