@@ -9,6 +9,8 @@ import { QRSample } from './QRSample';
 import { WebsiteTracker } from './WebsiteTracker';
 import { AIAnalysis } from './AIAnalysis';
 import { QuoteAutomation } from './QuoteAutomation';
+import { LeadGeneration } from './LeadGeneration';
+import { AudioBuitendienst } from './AudioBuitendienst';
 
 const tools = [
   { icon: Ticket, title: 'Beurzen & Events', benefit: 'Lead direct in CRM na scan', color: 'brand-green', slideKey: 'TradeShows' },
@@ -19,13 +21,14 @@ const tools = [
   { icon: Globe, title: 'Website Lead Tracker', benefit: 'Anonieme bezoekers → bedrijfsnaam', color: 'brand-pink', slideKey: 'WebsiteTracker' },
   { icon: Mic, title: 'AI Gespreksanalyse', benefit: 'Auto-samenvatting & coaching tips', color: 'brand-green', slideKey: 'AIAnalysis' },
   { icon: FileText, title: 'Offerte Automatisering', benefit: 'Snellere opvolging, hogere conversie', color: 'brand-accent', slideKey: 'QuoteAutomation' },
-  { icon: UserPlus, title: 'Lead Generatie', benefit: 'Automatisch leads op aanvraag', color: 'brand-pink', slideKey: null },
-  { icon: Headphones, title: 'Audio Buitendienst', benefit: 'Spraaknotities direct op klantkaart', color: 'brand-green', slideKey: null },
+  { icon: UserPlus, title: 'Lead Generatie', benefit: 'Automatisch leads op aanvraag', color: 'brand-pink', slideKey: 'LeadGeneration' },
+  { icon: Headphones, title: 'Audio Buitendienst', benefit: 'Spraaknotities direct op klantkaart', color: 'brand-green', slideKey: 'AudioBuitendienst' },
 ];
 
 const slideComponentMap: Record<string, React.FC> = {
   TradeShows, LeadPipeline, ContactEnricher, AIEnrichment,
   QRSample, WebsiteTracker, AIAnalysis, QuoteAutomation,
+  LeadGeneration, AudioBuitendienst,
 };
 
 export const FlowsAutomation: React.FC = () => {

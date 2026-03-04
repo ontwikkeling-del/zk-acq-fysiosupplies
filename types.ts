@@ -266,6 +266,8 @@ export const ALL_SLIDE_KEYS = [
   'WebsiteTracker',
   'AIAnalysis',
   'QuoteAutomation',
+  'LeadGeneration',
+  'AudioBuitendienst',
   // Team
   'TeamExpertise',
   // Aanpak & investering
@@ -282,7 +284,9 @@ export const ALL_SLIDE_KEYS = [
 export const TOOL_SLIDES: SlideKey[] = [
   'TradeShows', 'LeadPipeline', 'ContactEnricher', 'AIEnrichment',
   'QRSample', 'WebsiteTracker', 'AIAnalysis', 'QuoteAutomation',
+  'LeadGeneration', 'AudioBuitendienst',
   'ActivePipeline', 'SleepingClients', 'MaxClientValue', 'NewClients',
+  'CRMPillar', 'AIAutomationPillar', 'TrainingPillar',
 ];
 
 export type SlideKey = typeof ALL_SLIDE_KEYS[number];
@@ -313,6 +317,8 @@ export const SLIDE_LABELS: Record<SlideKey, string> = {
   WebsiteTracker: 'Website Lead Tracker',
   AIAnalysis: 'AI Gespreksanalyse',
   QuoteAutomation: 'Offerte Automatisering',
+  LeadGeneration: 'Lead Generatie',
+  AudioBuitendienst: 'Audio Buitendienst',
   TeamExpertise: 'Specialistische Kennis',
   Packages: '12-Maanden Plan',
   BusinessCase: 'Business Case — Calculator',

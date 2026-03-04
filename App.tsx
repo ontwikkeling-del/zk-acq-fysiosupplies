@@ -36,6 +36,8 @@ import { QRSample } from './sections/QRSample';
 import { WebsiteTracker } from './sections/WebsiteTracker';
 import { AIAnalysis } from './sections/AIAnalysis';
 import { QuoteAutomation } from './sections/QuoteAutomation';
+import { LeadGeneration } from './sections/LeadGeneration';
+import { AudioBuitendienst } from './sections/AudioBuitendienst';
 import { Packages } from './sections/Packages';
 import { Pricing } from './sections/Pricing';
 import { Security } from './sections/Security';
@@ -51,6 +53,7 @@ const slideComponentMap: Record<string, React.FC> = {
   B2BValue, ActivePipeline, SleepingClients, NewClients, MaxClientValue,
   FlowsAutomation, TradeShows, LeadPipeline, ContactEnricher,
   AIEnrichment, QRSample, WebsiteTracker, AIAnalysis, QuoteAutomation,
+  LeadGeneration, AudioBuitendienst,
   Pricing, Security, ClientLogos, ClosingCTA,
 };
 
