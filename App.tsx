@@ -57,9 +57,9 @@ const slideComponentMap: Record<string, React.FC> = {
   Pricing, Security, ClientLogos, ClosingCTA,
 };
 
-const STORAGE_KEY = 'v4-slide-config';
-const PRESET_KEY = 'v4-active-preset';
-const CONFIG_KEY = 'v4-config-overrides';
+const STORAGE_KEY = 'v5-slide-config';
+const PRESET_KEY = 'v5-active-preset';
+const CONFIG_KEY = 'v5-config-overrides';
 
 function loadSavedSlides(): string[] | null {
   try {
