@@ -9,8 +9,8 @@ import { TEAM_MEMBERS } from './types';
 export const config = {
   ...zonderCrmPreset,
   clientName: 'FysioSupplies',
-  clientLogo: '/fysiosupplies-logo.png',
-  clientBackgroundImage: '/bg-fysio.jpg',
+  clientLogo: '/fysiosupplies-logo.jpg',
+  clientBackgroundImage: '',
   presentationTitle: 'Data-gedreven Groei',
   presentationSubtitle: 'Voordat we iets laten zien, zijn wij vooral benieuwd naar jullie. Want dit gesprek gaat over FysioSupplies — niet over ons.',
 
