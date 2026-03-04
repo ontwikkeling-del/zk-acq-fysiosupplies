@@ -1,3 +1,4 @@
+// @personalization: HIGH — 4 stat-kaarten (marktcijfers + bron), segmenttabel (klant's eigen klanttypen), bronvermelding onderaan.
 import React from 'react';
 import { motion } from 'framer-motion';
 import { TrendingUp, Building2, Users, Activity, Euro } from 'lucide-react';

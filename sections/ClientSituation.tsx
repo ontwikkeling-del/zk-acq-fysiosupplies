@@ -1,3 +1,4 @@
+// @personalization: HIGH — bullets (6x), riskCards (3x), slotcitaat, iconkeuze. Gebruik echte klantdata uit briefing + B2B Vragenlijst. Geen verzonnen getallen.
 import React from 'react';
 import { motion } from 'framer-motion';
 import { AlertTriangle, Users, Phone, Package, UserX } from 'lucide-react';

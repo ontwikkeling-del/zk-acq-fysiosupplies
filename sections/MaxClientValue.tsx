@@ -1,3 +1,4 @@
+// @personalization: HIGH — strategies (4x) en description aanpassen per klant. Gebruik echte churn/LTV/upsell data. Geen generieke bullets.
 import React from 'react';
 import { motion } from 'framer-motion';
 import { TrendingUp, RefreshCw, ShoppingCart, Heart } from 'lucide-react';
