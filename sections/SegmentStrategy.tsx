@@ -46,7 +46,7 @@ const signals = [
     color: 'red-500',
     bgColor: 'red-50',
     borderColor: 'red-200',
-    example: 'Praktijk Beusenberg — 5 vestigingen, laatste order 94 dagen geleden',
+    example: 'Fysiopraktijk Groningen — 5 vestigingen, laatste order 94 dagen geleden',
   },
   {
     title: 'Cross-sell kans',

@@ -89,8 +89,8 @@ export const ClientSituation: React.FC = () => {
                   <UserX className="w-6 h-6 text-brand-accent" />
                 </div>
                 <div>
-                  <p className="text-brand-purple font-black text-lg">Rutger Beusenberg</p>
-                  <p className="text-gray-500 text-sm">5 fysiotherapiepraktijken — Groningen</p>
+                  <p className="text-brand-purple font-black text-lg">Fysiopraktijk Groningen</p>
+                  <p className="text-gray-500 text-sm">5 vestigingen — vaste klant tot vorig jaar</p>
                 </div>
               </div>
 
@@ -124,7 +124,7 @@ export const ClientSituation: React.FC = () => {
               transition={{ delay: 1.2 }}
               className="text-center mt-4 text-brand-accent font-bold text-sm italic"
             >
-              "Hoeveel Rutgers zijn er nog meer?"
+              "Hoeveel praktijken zijn er nog meer?"
             </motion.p>
           </div>
         </div>

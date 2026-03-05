@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Zap, Ticket, GitBranch, UserCheck, Brain, QrCode, Globe, Mic, FileText, Wrench, ArrowRight, X, UserPlus, Headphones } from 'lucide-react';
+import { Zap, Ticket, GitBranch, UserCheck, Brain, QrCode, Globe, Mic, FileText, Wrench, ArrowRight, X, UserPlus, Headphones, Layers, Repeat } from 'lucide-react';
 import { TradeShows } from './TradeShows';
 import { LeadPipeline } from './LeadPipeline';
 import { ContactEnricher } from './ContactEnricher';
@@ -11,6 +11,8 @@ import { AIAnalysis } from './AIAnalysis';
 import { QuoteAutomation } from './QuoteAutomation';
 import { LeadGeneration } from './LeadGeneration';
 import { AudioBuitendienst } from './AudioBuitendienst';
+import { CustomerSegmentation } from './CustomerSegmentation';
+import { MarketingSales } from './MarketingSales';
 
 const tools = [
   { icon: Ticket, title: 'Beurzen & Events', benefit: 'Lead direct in CRM na scan', color: 'brand-green', slideKey: 'TradeShows' },
@@ -23,12 +25,14 @@ const tools = [
   { icon: FileText, title: 'Offerte Automatisering', benefit: 'Snellere opvolging, hogere conversie', color: 'brand-accent', slideKey: 'QuoteAutomation' },
   { icon: UserPlus, title: 'Lead Generatie', benefit: 'Automatisch leads op aanvraag', color: 'brand-pink', slideKey: 'LeadGeneration' },
   { icon: Headphones, title: 'Audio Buitendienst', benefit: 'Spraaknotities direct op klantkaart', color: 'brand-green', slideKey: 'AudioBuitendienst' },
+  { icon: Layers, title: 'Klanten Segmenteren', benefit: 'A/B/C-klanten automatisch indelen', color: 'brand-accent', slideKey: 'CustomerSegmentation' },
+  { icon: Repeat, title: 'Marketing × Sales', benefit: 'Sales data verbetert marketing', color: 'brand-pink', slideKey: 'MarketingSales' },
 ];
 
 const slideComponentMap: Record<string, React.FC> = {
   TradeShows, LeadPipeline, ContactEnricher, AIEnrichment,
   QRSample, WebsiteTracker, AIAnalysis, QuoteAutomation,
-  LeadGeneration, AudioBuitendienst,
+  LeadGeneration, AudioBuitendienst, CustomerSegmentation, MarketingSales,
 };
 
 export const FlowsAutomation: React.FC = () => {
@@ -72,7 +76,7 @@ export const FlowsAutomation: React.FC = () => {
           </div>
 
           {/* Tools grid */}
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
             {tools.map((tool, index) => {
               const Icon = tool.icon;
               return (

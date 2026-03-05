@@ -218,10 +218,10 @@ export function resizeImage(file: File, maxWidth = 400): Promise<string> {
 // Pricing calculation
 export function calculatePrice(pkg: 'full' | 'lite', salesCount: number): number {
   if (pkg === 'lite') return 2500;
-  const base = 3495;
-  if (salesCount <= 5) return base;
-  const extra = Math.ceil((salesCount - 5) / 2);
-  return base + extra * 1250;
+  if (salesCount <= 3) return 3495;
+  if (salesCount <= 5) return 4495;
+  if (salesCount <= 7) return 5495;
+  return 5495;
 }
 
 // Team members available as presenters

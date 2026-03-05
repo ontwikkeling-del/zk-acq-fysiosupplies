@@ -72,8 +72,8 @@ const slideNotes: Record<string, SlideNote> = {
     notes: [
       'Laat de bullets staan — deze zijn uit HUN eigen woorden (het gesprek met Jeroen)',
       '"Wij benaderen eigenlijk niet" — direct citaat',
-      'Rutger-anekdote: concrete klant die weg is gelopen',
-      'Kernvraag: hoeveel Rutgers zijn er nog meer?',
+      'Fysiopraktijk Groningen-anekdote: concrete klant die weg is gelopen',
+      'Kernvraag: hoeveel praktijken zijn er nog meer?',
     ],
     questions: [
       'Hoeveel klanten zijn er het afgelopen jaar gestopt met bestellen?',
