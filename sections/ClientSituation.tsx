@@ -1,12 +1,13 @@
 // @personalization: HIGH — bullets (6x), riskCards (3x), slotcitaat, iconkeuze. Gebruik echte klantdata uit briefing + B2B Vragenlijst. Geen verzonnen getallen.
 import React from 'react';
 import { motion } from 'framer-motion';
-import { AlertTriangle, Users, ShoppingCart, Package, UserX, Database } from 'lucide-react';
+import { AlertTriangle, Users, ShoppingCart, Package, UserX, Database, Layers } from 'lucide-react';
 
 const bullets = [
   { icon: ShoppingCart, text: '€13,9M omzet — 88% via de webshop, 12% directe verkoop (€1,7M)', color: 'brand-accent' },
   { icon: Users, text: '46.873 klanten in 3 jaar — 32.586 daarvan bestelden één keer', color: 'brand-accent' },
   { icon: Database, text: 'Klantdata in Business Central, Magento en Klaviyo', color: 'brand-accent' },
+  { icon: Layers, text: 'Geen segmentatie: onduidelijk welk deel B2B vs. B2C is, en wie de waardevolle klanten zijn', color: 'brand-accent' },
   { icon: Package, text: '12.000+ producten: van €3 tape tot €35.000 apparatuur', color: 'brand-accent' },
 ];
 
