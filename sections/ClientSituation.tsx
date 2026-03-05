@@ -6,7 +6,7 @@ import { AlertTriangle, Users, ShoppingCart, Package, UserX, Database } from 'lu
 const bullets = [
   { icon: ShoppingCart, text: '€13,9M omzet — 88% via de webshop, 12% directe verkoop (€1,7M)', color: 'brand-accent' },
   { icon: Users, text: '46.873 klanten in 3 jaar — 32.586 daarvan bestelden één keer', color: 'brand-accent' },
-  { icon: Database, text: 'Klantdata in Business Central, Magento, Klaviyo — wat gebeurt er als iemand stopt met bestellen?', color: 'brand-accent' },
+  { icon: Database, text: 'Klantdata in Business Central, Magento en Klaviyo', color: 'brand-accent' },
   { icon: Package, text: '12.000+ producten: van €3 tape tot €35.000 apparatuur', color: 'brand-accent' },
 ];
 
@@ -31,7 +31,7 @@ export const ClientSituation: React.FC = () => {
               className="inline-flex items-center gap-2 bg-brand-accent/10 border border-brand-accent/20 rounded-full px-4 py-1.5 mb-6"
             >
               <AlertTriangle className="w-4 h-4 text-brand-accent" />
-              <span className="text-brand-accent font-bold text-xs uppercase tracking-wider">Wat we zien</span>
+              <span className="text-brand-accent font-bold text-xs uppercase tracking-wider">Huidige Situatie</span>
             </motion.div>
 
             <motion.h2
@@ -42,7 +42,7 @@ export const ClientSituation: React.FC = () => {
             >
               FysioSupplies
               <br />
-              <span className="text-brand-accent">in cijfers</span>
+              <span className="text-brand-accent">vandaag</span>
             </motion.h2>
 
             <div className="space-y-4">
