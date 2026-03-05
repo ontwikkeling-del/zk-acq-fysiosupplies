@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Layers, Star, RefreshCw, TrendingUp, AlertCircle, ChevronRight } from 'lucide-react';
+import { Layers, Star, RefreshCw, TrendingUp, AlertCircle, ChevronRight, Globe } from 'lucide-react';
 
 const segments = [
   {
@@ -75,11 +75,26 @@ export const CustomerSegmentation: React.FC = () => {
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ delay: 0.5 }}
-              className="bg-brand-purple/5 border border-brand-purple/10 rounded-xl p-4"
+              className="bg-brand-purple/5 border border-brand-purple/10 rounded-xl p-4 mb-4"
             >
               <p className="text-brand-purple font-bold text-sm mb-1">Hoe werkt het?</p>
               <p className="text-gray-500 text-xs leading-relaxed">
                 Bestelhistorie, orderfrequentie en klantwaarde worden continu geanalyseerd. Bij veranderingen (bijv. klant zakt van A naar B) krijgt de accountmanager automatisch een signaal.
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ delay: 0.7 }}
+              className="bg-brand-accent/5 border border-brand-accent/15 rounded-xl p-4"
+            >
+              <div className="flex items-center gap-2 mb-2">
+                <Globe className="w-4 h-4 text-brand-accent" />
+                <p className="text-brand-accent font-bold text-sm">Website-verrijking</p>
+              </div>
+              <p className="text-gray-500 text-xs leading-relaxed">
+                Op basis van websitedata herkennen we automatisch het type klant. Is het een fysiotherapiepraktijk, een ziekenhuis of een sportschool? Die classificatie bepaalt de juiste segmentatie en maakt gerichte advertenties mogelijk.
               </p>
             </motion.div>
           </div>
