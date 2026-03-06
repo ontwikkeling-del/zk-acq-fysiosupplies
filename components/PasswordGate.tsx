@@ -14,7 +14,7 @@ async function sha256(message: string): Promise<string> {
 }
 
 export function useShareAuth() {
-  const isShareMode = new URLSearchParams(window.location.search).has('share');
+  const isShareMode = new URLSearchParams(window.location.search).has('share') || window.location.pathname.startsWith('/share');
   const authLevel = sessionStorage.getItem(SESSION_KEY);
   const isAuthenticated = isShareMode
     ? authLevel === 'share' || authLevel === 'presenter'

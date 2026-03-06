@@ -11,10 +11,11 @@ if (!rootElement) {
 // Simple path-based routing (no React Router needed)
 const path = window.location.pathname;
 const isAcquisitie = path.startsWith('/acquisitie');
+const isShare = path.startsWith('/share');
 
 const root = ReactDOM.createRoot(rootElement);
 root.render(
   <React.StrictMode>
-    {isAcquisitie ? <App /> : <LandingPage />}
+    {isShare ? <App viewMode="share" /> : isAcquisitie ? <App viewMode="presenter" /> : <LandingPage />}
   </React.StrictMode>
 );

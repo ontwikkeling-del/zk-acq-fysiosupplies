@@ -95,7 +95,8 @@ if (savedOverrides) {
   Object.assign(config, savedOverrides);
 }
 
-export default function App() {
+export default function App({ viewMode = 'presenter' }: { viewMode?: 'share' | 'presenter' }) {
+  const isViewOnly = viewMode === 'share';
   const { isShareMode, isAuthenticated } = useShareAuth();
   const [shareAuthed, setShareAuthed] = useState(isAuthenticated);
   const [currentSection, setCurrentSection] = useState(0);
@@ -282,24 +283,24 @@ export default function App() {
         onNavigate={navigateToSection}
       />
 
-      <DiscussionPrompt currentSection={currentSection} isEnabled={showPresenterNotes} />
+      {!isViewOnly && <DiscussionPrompt currentSection={currentSection} isEnabled={showPresenterNotes} />}
 
-      <PresenterNotes
+      {!isViewOnly && <PresenterNotes
         currentSection={currentSection}
         currentSlideKey={activeSections[currentSection]?.key || ''}
         isVisible={showPresenterNotes}
         onClose={() => setShowPresenterNotes(false)}
-      />
+      />}
 
-      {/* Feedback panel */}
-      <FeedbackPanel
+      {/* Feedback panel - hidden in share mode */}
+      {!isViewOnly && <FeedbackPanel
         currentSlideKey={activeSections[currentSection]?.key || ''}
         slideIndex={currentSection}
         totalSlides={totalSections}
-      />
+      />}
 
-      {/* Notes toggle button */}
-      <button
+      {/* Notes toggle button - hidden in share mode */}
+      {!isViewOnly && <button
         onClick={() => setShowPresenterNotes(prev => !prev)}
         className={`fixed bottom-8 right-20 w-10 h-10 backdrop-blur-sm shadow-lg border rounded-full flex items-center justify-center z-40 hover:scale-110 transition-all ${
           showPresenterNotes
@@ -309,16 +310,15 @@ export default function App() {
         title="Presentatie notities (N)"
       >
         <StickyNote className={`w-4 h-4 ${showPresenterNotes ? 'text-brand-green' : 'text-brand-purple'}`} />
-      </button>
+      </button>}
 
-      {/* Settings button */}
-      <button
+      {!isViewOnly && <button
         onClick={() => setShowSettings(true)}
         className="fixed bottom-8 right-8 w-10 h-10 bg-white/80 backdrop-blur-sm shadow-lg border border-gray-200 rounded-full flex items-center justify-center z-40 hover:bg-white hover:scale-110 transition-all"
         title="Instellingen"
       >
         <Settings className="w-4 h-4 text-brand-purple" />
-      </button>
+      </button>}
 
       {/* Settings Panel */}
       <SettingsPanel
