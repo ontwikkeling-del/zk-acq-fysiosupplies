@@ -86,7 +86,7 @@ export const config = {
   quoteAutomationSubtitle: 'Geautomatiseerd offerteproces voor fysiotherapiepraktijken en zorginstellingen',
   leadDistributionLabel: 'Per regio',
 
-  presenter: TEAM_MEMBERS[3], // Migilio Tirtosentono
+  presenter: TEAM_MEMBERS[0], // Erwin Dijkstra
   package: 'full' as const,
   salesCount: 2,
 };

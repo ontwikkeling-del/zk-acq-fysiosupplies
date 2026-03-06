@@ -34,6 +34,7 @@ export const PasswordGate: React.FC<PasswordGateProps> = ({ clientName, clientLo
   const [error, setError] = useState(false);
   const [shaking, setShaking] = useState(false);
   const [checking, setChecking] = useState(false);
+  const [logoError, setLogoError] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -73,11 +74,12 @@ export const PasswordGate: React.FC<PasswordGateProps> = ({ clientName, clientLo
 
       <div className={`relative z-10 w-full max-w-sm mx-4 ${shaking ? 'animate-shake' : ''}`}>
         <div className="text-center mb-8">
-          {clientLogo && (
+          {clientLogo && !logoError && (
             <img
               src={clientLogo}
               alt={clientName}
               className="h-16 mx-auto mb-4 object-contain brightness-0 invert"
+              onError={() => setLogoError(true)}
             />
           )}
           <div className="flex items-center justify-center gap-3 mb-2">
