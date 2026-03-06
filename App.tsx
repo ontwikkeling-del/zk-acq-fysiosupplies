@@ -5,6 +5,7 @@ import { Navigation } from './components/Navigation';
 import { DiscussionPrompt } from './components/DiscussionPrompt';
 import { PresenterNotes } from './components/PresenterNotes';
 import { SettingsPanel } from './components/SettingsPanel';
+import { PasswordGate, useShareAuth } from './components/PasswordGate';
 import { BusinessCaseProvider } from './BusinessCaseContext';
 import { config, ALL_SLIDE_KEYS } from './clientConfig';
 import { metCrmPreset, zonderCrmPreset } from './presets';
@@ -95,6 +96,8 @@ if (savedOverrides) {
 }
 
 export default function App() {
+  const { isShareMode, isAuthenticated } = useShareAuth();
+  const [shareAuthed, setShareAuthed] = useState(isAuthenticated);
   const [currentSection, setCurrentSection] = useState(0);
   const [showPresenterNotes, setShowPresenterNotes] = useState(false);
   const [showSettings, setShowSettings] = useState(false);
@@ -257,6 +260,18 @@ export default function App() {
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [currentSection, navigateToSection, totalSections, showSettings]);
+
+  // Password gate for all access
+  if (!shareAuthed) {
+    return (
+      <PasswordGate
+        clientName={config.clientName}
+        clientLogo={config.clientLogo}
+        isShareMode={isShareMode}
+        onAuthenticated={() => setShareAuthed(true)}
+      />
+    );
+  }
 
   return (
     <BusinessCaseProvider>
