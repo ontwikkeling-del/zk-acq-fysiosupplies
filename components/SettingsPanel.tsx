@@ -8,9 +8,9 @@ interface SettingsPanelProps {
   onClose: () => void;
   enabledSlides: string[];
   onToggleSlide: (slideKey: string) => void;
-  onPresetChange: (preset: 'met-crm' | 'zonder-crm') => void;
+  onPresetChange: (preset: 'met-crm' | 'zonder-crm' | 'npi') => void;
   onReset: () => void;
-  activePreset: 'met-crm' | 'zonder-crm';
+  activePreset: 'met-crm' | 'zonder-crm' | 'npi';
   configValues: ClientConfig;
   onConfigChange: (updates: Partial<ClientConfig>) => void;
   onExport: () => void;

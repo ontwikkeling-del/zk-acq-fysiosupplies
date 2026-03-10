@@ -8,7 +8,7 @@ import { SettingsPanel } from './components/SettingsPanel';
 import { PasswordGate, useShareAuth } from './components/PasswordGate';
 import { BusinessCaseProvider } from './BusinessCaseContext';
 import { config, ALL_SLIDE_KEYS } from './clientConfig';
-import { metCrmPreset, zonderCrmPreset } from './presets';
+import { metCrmPreset, zonderCrmPreset, npiPreset } from './presets';
 import type { ClientConfig } from './types';
 
 import { WelcomeSlide } from './sections/WelcomeSlide';
@@ -71,10 +71,19 @@ function loadSavedSlides(): string[] | null {
   }
 }
 
-function loadSavedPreset(): 'met-crm' | 'zonder-crm' {
+function loadSavedPreset(): 'met-crm' | 'zonder-crm' | 'npi' {
   try {
+    // URL param overrides localStorage (e.g. ?preset=npi)
+    const urlParams = new URLSearchParams(window.location.search);
+    const urlPreset = urlParams.get('preset');
+    if (urlPreset && ['met-crm', 'zonder-crm', 'npi'].includes(urlPreset)) {
+      localStorage.setItem(PRESET_KEY, urlPreset);
+      return urlPreset as 'met-crm' | 'zonder-crm' | 'npi';
+    }
     const saved = localStorage.getItem(PRESET_KEY);
-    return saved === 'zonder-crm' ? 'zonder-crm' : 'met-crm';
+    if (saved === 'zonder-crm') return 'zonder-crm';
+    if (saved === 'npi') return 'npi';
+    return 'met-crm';
   } catch {
     return 'met-crm';
   }
@@ -89,7 +98,15 @@ function loadSavedConfig(): Partial<ClientConfig> | null {
   }
 }
 
-// Apply saved config overrides on startup
+// Apply active preset on startup, then user overrides on top
+const _startupPreset = loadSavedPreset();
+if (_startupPreset === 'npi') {
+  Object.assign(config, npiPreset);
+} else if (_startupPreset === 'zonder-crm') {
+  Object.assign(config, zonderCrmPreset);
+} else {
+  Object.assign(config, metCrmPreset);
+}
 const savedOverrides = loadSavedConfig();
 if (savedOverrides) {
   Object.assign(config, savedOverrides);
@@ -102,7 +119,7 @@ export default function App({ viewMode = 'presenter' }: { viewMode?: 'share' | '
   const [currentSection, setCurrentSection] = useState(0);
   const [showPresenterNotes, setShowPresenterNotes] = useState(false);
   const [showSettings, setShowSettings] = useState(false);
-  const [activePreset, setActivePreset] = useState<'met-crm' | 'zonder-crm'>(loadSavedPreset);
+  const [activePreset, setActivePreset] = useState<'met-crm' | 'zonder-crm' | 'npi'>(loadSavedPreset);
   const [enabledSlides, setEnabledSlides] = useState<string[]>(
     () => loadSavedSlides() || config.enabledSlides
   );
@@ -146,9 +163,9 @@ export default function App({ viewMode = 'presenter' }: { viewMode?: 'share' | '
     });
   };
 
-  const handlePresetChange = (preset: 'met-crm' | 'zonder-crm') => {
+  const handlePresetChange = (preset: 'met-crm' | 'zonder-crm' | 'npi') => {
     setActivePreset(preset);
-    const presetConfig = preset === 'met-crm' ? metCrmPreset : zonderCrmPreset;
+    const presetConfig = preset === 'met-crm' ? metCrmPreset : preset === 'npi' ? npiPreset : zonderCrmPreset;
     setEnabledSlides([...presetConfig.enabledSlides]);
     Object.assign(config, presetConfig);
     localStorage.removeItem(CONFIG_KEY);
@@ -160,7 +177,7 @@ export default function App({ viewMode = 'presenter' }: { viewMode?: 'share' | '
   };
 
   const handleReset = () => {
-    const presetConfig = activePreset === 'met-crm' ? metCrmPreset : zonderCrmPreset;
+    const presetConfig = activePreset === 'met-crm' ? metCrmPreset : activePreset === 'npi' ? npiPreset : zonderCrmPreset;
     setEnabledSlides([...presetConfig.enabledSlides]);
   };
 
